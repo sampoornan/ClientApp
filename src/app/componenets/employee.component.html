@@ -1,0 +1,22 @@
+<!-- <button (click)="startPlay()">start</button>
+<button (click)="stopPlay()">play</button> -->
+<div>
+    <table>
+      <tr>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your name</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </tr>
+    <div *ngIf="voiceActiveSectionDisabled; else voicesection;">
+      <button mat-button>Standard</button>
+      <button mat-button (click)="displayRecordButton()">Custom</button>
+    </div>
+    <ng-template #voicesection>
+    <div>
+      <button (click)="startPlay()">Start</button>
+      <button (click)="stopPlay()">Stop</button>
+    </div>
+    </ng-template>
+  </table>
+  </div>
