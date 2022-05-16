@@ -1,0 +1,26 @@
+<mat-card class ="employee"> 
+<mat-card-header>
+  <mat-card-title>PLEASE SPEAK</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+  <div fxLayout="row" fxLayoutGap = "10px">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your name</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <div fxFlex='10' fxLayout="row" fxLayoutGap = "30px" *ngIf="voiceActiveSectionDisabled; else voicesection;">
+      <button mat-raised-button>Standard</button>
+      <button mat-raised-button (click)="displayRecordButton()">Custom</button>
+    </div>
+    <ng-template #voicesection>
+    <div fxFlex='10' fxLayout="row" fxLayoutGap = "30px">
+      <button mat-raised-button color='primary' (click)="startPlay()">Start</button>
+      <button mat-raised-button (click)="stopPlay()">Stop</button>
+    </div>
+    </ng-template>
+  </div>
+</mat-card-content>
+
+
+</mat-card>
+

@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { EmployeeComponent } from './componenets/employee.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MaterialModule} from './material/material.module';
+import { EmployeeComponent } from './componenets/employee/employee.component';
+import { EmployeeModule } from './componenets/employee/employee.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    EmployeeComponent
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MaterialModule
+
+    EmployeeModule
   ],
   providers: [],
   bootstrap: [EmployeeComponent]
