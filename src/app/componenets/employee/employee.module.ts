@@ -10,9 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
-  declarations: [
-    EmployeeComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
 

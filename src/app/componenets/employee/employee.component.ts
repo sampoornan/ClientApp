@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Recorder from 'recorder-js';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 declare var MediaRecorder: any;
 const httpOptions = {
@@ -11,7 +12,7 @@ const httpOptions = {
   }),
 };
 @Component({
-  selector: 'app-root',
+  selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss'],
 })
@@ -23,12 +24,19 @@ export class EmployeeComponent implements OnInit {
   recorder = new Recorder(this.audioContext, {});
   title = 'ClientApp';
   voiceActiveSectionDisabled: boolean = true;
+  employeeForm: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private formBuilder: FormBuilder) {}
   ngOnInit() {
     this.sendObj = {
       audio: this.blobFile,
     };
+    this.employeeForm = this.formBuilder.group({
+      name: [''],
+      phonics: ['']
+
+    })
     this.recordAudio = () => {
       return new Promise((resolve) => {
         navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {

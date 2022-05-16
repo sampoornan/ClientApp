@@ -3,22 +3,38 @@
   <mat-card-title>NAME TRANSLATION TOOL</mat-card-title>
 </mat-card-header>
 <mat-card-content>
-  <div fxLayout="row" fxLayoutGap = "10px">
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your name</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <div fxFlex='10' fxLayout="row" fxLayoutGap = "30px" *ngIf="voiceActiveSectionDisabled; else voicesection;">
-      <button mat-raised-button>Standard</button>
-      <button mat-raised-button (click)="displayRecordButton()">Please Speak</button>
+  <div class ='mat-elevation-z2 m-t-16 m-b.16 p-8'>
+  <div fxLayout="row" fxLayout.lt-md='column' fxLayoutGap = "30px">
+    <form [formGroup] ='employeeForm'>
+    <div fxLayout ='column' fxFlex=100>
+      <div fxLayout = 'row'>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your name</mat-label>
+          <input matInput formControlName='name'>
+        </mat-form-field>
+      </div>
+      <div fxLayout='row' *ngIf="voiceActiveSectionDisabled; else voicesection;">
+        <button mat-raised-button>Standard</button>
+        <button mat-raised-button (click)="displayRecordButton()">Please Speak</button>
+      </div>
+      <div fxLayout='row'>
+        <ng-template #voicesection>
+          <button mat-raised-button color='primary' (click)="startPlay()">Start</button>
+          <button mat-raised-button (click)="stopPlay()">Stop</button>
+        </ng-template>  
+      </div>
     </div>
-    <ng-template #voicesection>
-    <div fxFlex='10' fxLayout="row" fxLayoutGap = "30px">
-      <button mat-raised-button color='primary' (click)="startPlay()">Start</button>
-      <button mat-raised-button (click)="stopPlay()">Stop</button>
-    </div>
-    </ng-template>
+  <div fxLayout ='column' fxFlex=100>
+    <div fxLayout = 'row'>
+     <mat-form-field> 
+  <mat-label>Phonics</mat-label>
+  <input matInput formControlName='phonetics'>
+</mat-form-field>
+    </div>   
   </div>
+    </form>
+  </div>
+</div>
 </mat-card-content>
 
 
