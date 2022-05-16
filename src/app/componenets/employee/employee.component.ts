@@ -34,7 +34,7 @@ export class EmployeeComponent implements OnInit {
     };
     this.employeeForm = this.formBuilder.group({
       name: [''],
-      phonics: ['']
+      phonetics: ['']
 
     })
     this.recordAudio = () => {
